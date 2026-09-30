@@ -326,8 +326,26 @@ def desativar_sala(sala_id):
 
 # ============ RESERVAS (6) ============
 def inserir_reserva(sala_id, usuario_id, data, horario, motivo):
-    """Insere reserva. Retorna True/False."""
-    pass
+    conexao=conectar()
+    cursor=conexao.cursor()
+
+    sala_id=input("sala_id: ")
+    usuario_id=input("usuario_id: ")
+    data=input("data: ")
+    horario=input("horario: ")
+    motivo=input("motivo: ")
+
+    cursor.execute(
+        """
+        INSERT INTO reserva (sala_id, usuario_id, data, horario, motivo) VALUES (?,?,?,?,?)
+        """,(sala_id, usuario_id, data, horario, motivo)
+    )
+
+
+    conexao.commit()
+    conexao.close()
+
+  
 
 def verificar_disponibilidade(sala_id, data, horario):
     """Verifica se está livre. Retorna True/False."""
