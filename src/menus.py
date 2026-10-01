@@ -61,13 +61,7 @@ def menu_coordenador(sistema):
     ]
     return opcoes
 # ============ LOGIN / CADASTRO (2) ============
-def menu_cadastro():
-    """Fluxo de cadastro de usuário."""
-    pass
 
-def menu_login(sistema):
-    """Fluxo de login."""
-    pass
 def menu_cadastro():
     print("\n===== CADASTRO =====")
     nome = input("Digite seu nome: ")
