@@ -341,7 +341,6 @@ def inserir_reserva(sala_id, usuario_id, data, horario, motivo):
         """,(sala_id, usuario_id, data, horario, motivo)
     )
 
-
     conexao.commit()
     conexao.close()
 
