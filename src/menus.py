@@ -36,7 +36,30 @@ def menu_visitante():
 def menu_buscar_publico():
     """Busca pública de projetos."""
     pass
+def menu_publico( sistema):
+    opcoes = [
+        "1- CONSULTAR SALAS"
+        "2- VER PROJETOS",
+        "3- RAKING DOS PROJETOS",
+        "4- FAZER LOGIN"
+    ]
+    return opcoes
 
+def menu_professor(sistema):
+    opcoes =[ 
+        "1- VER ALUNOS",
+        "2- REGISTRAR NOTAS",
+        "3- REGISTRAR FREQUENCIAS"
+    ]
+    return opcoes
+
+def menu_coordenador(sistema):
+    opcoes =[
+        "1- VER PROFESSORES",
+        "2- VER ALUNOS",
+        "3- GERAR RELATORIOS"
+    ]
+    return opcoes
 # ============ LOGIN / CADASTRO (2) ============
 def menu_cadastro():
     """Fluxo de cadastro de usuário."""
@@ -45,6 +68,46 @@ def menu_cadastro():
 def menu_login(sistema):
     """Fluxo de login."""
     pass
+def menu_cadastro():
+    print("\n===== CADASTRO =====")
+    nome = input("Digite seu nome: ")
+    usuario = input("Digite seu usuário: ")
+    senha = input("Digite sua senha: ")
+    tipo = input("Digite o tipo (publico/professor/coordenador): ")
+
+    cadastro = {
+        "nome": nome,
+        "usuario": usuario,
+        "senha": senha,
+        "tipo": tipo
+    }
+
+    print("\nCadastro realizado com sucesso!")
+    return cadastro
+
+
+def menu_login(sistema):
+    print("\n===== LOGIN =====")
+    usuario = input("Digite seu usuário: ")
+    senha = input("Digite sua senha: ")
+
+    if usuario == sistema["usuario"] and senha == sistema["senha"]:
+        print("\nLogin realizado com sucesso!")
+        print("Bem-vindo,", sistema["nome"])
+
+        if sistema["tipo"] == "publico":
+            return menu_publico(sistema)
+
+        elif sistema["tipo"] == "professor":
+            return menu_professor(sistema)
+
+        elif sistema["tipo"] == "coordenador":
+            return menu_coordenador(sistema)
+
+    else:
+        print("\nUsuário ou senha incorretos!")
+        return None
+
 
 # ============ MENUS POR TIPO (3) ============
 def menu_publico(sistema):
